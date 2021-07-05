@@ -14,11 +14,44 @@ while (!upperCase && !numbers && !symbols) {
   symbols = confirm("Would you like to include special characters?")
 }
 
-var alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numbers = "0123456789";
-var symbols = "!@#$%^&*_-+=";
 
-// Get references to the #generate element
+// create password with charcodes
+function createPassword(characterAmount, upperCase, numbers, symbols) {
+  let charCodes = LOWERCASE_CHAR_CODES
+  if (upperCase) charCodes = charCodes.concat(UPPER_CASE_CHAR_CODES)
+  if (numbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+  if (symbols) charCodes = charCodes.concat(SYMBOL_CASE_CHAR_CODES)
+
+  const passwordCharacters = []
+  for (let i = 0; i < characterAmount; i++) {
+    const characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
+    passwordCharacters.push(String.fromCharCode(characterCode))
+  }
+  return passwordCharacters.join('')
+
+}
+
+function arrayLowToHigh(low, high) {
+  const array = []
+  for (let i = low; i <= high; i++) {
+    array.push(i)
+  }
+  return array
+
+}
+
+//CONST FOR ARRAY
+const LOWERCASE_CHAR_CODES = arrayLowToHigh(97, 122)
+const UPPER_CASE_CHAR_CODES = arrayLowToHigh(65,90)
+const NUMBER_CHAR_CODES = arrayLowToHigh(48,57)
+const SYMBOL_CASE_CHAR_CODES = arrayLowToHigh(33, 47).concat(
+  arrayLowToHigh(58,64)
+).concat(
+  arrayLowToHigh(91,96)
+).concat(
+  arrayLowToHigh(123, 126)
+)
+
 var generateBtn = document.querySelector("#generate");
 
 var generatePassword = function () {
