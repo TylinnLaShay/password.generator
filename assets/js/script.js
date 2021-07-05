@@ -2,10 +2,17 @@
 var characterAmount = Number(prompt("How many characters would you like your password to be?"));
 while (isNaN(length) || length < 8 || length > 128) length = Number(prompt("Length must be between 8-128 characters."));
 
-var upperCase = confirm("Would you like to include at least one uppercase letter?");
-var numbers = confirm("Would you like to include at least one number?");
-var symbols = confirm("Would you like to include at least one special character?");
+var upperCase = confirm("Would you like to include an uppercase letter?");
+var numbers = confirm("Would you like to include numbers?");
+var symbols = confirm("Would you like to include special characters?");
 var generateBtn = document.querySelector("#generate");
+
+while (!upperCase && !numbers && !symbols) {
+  alert("You must select at leastv one character type!");
+  upperCase = confirm("Would you like to include an uppercase letter?");
+  numbers = confirm("Would you like to include numbers?");
+  symbols = confirm("Would you like to include special characters?")
+}
 
 var alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "0123456789";
