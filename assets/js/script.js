@@ -1,4 +1,6 @@
-// Assignment code here
+// establish user variables
+var characterAmount = Number(prompt("How many characters would you like your password to be?"))
+while (isNaN(length) || length < 8 || length > 128) length = Number(prompt("Length must be between 8-128 characters."))
 
 var alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "0123456789";
@@ -7,7 +9,15 @@ var symbols = "!@#$%^&*_-+=";
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+var generatePassword = function () {
+  var addNumbers = window.prompt('Include at least one number? Please enter yes or no below.')
 
+    if (addNumbers === 'yes' || addNumbers === 'YES')
+    if (addNumbers === 'no' || addNumbers === 'NO')
+      console.log(
+
+      )
+}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
